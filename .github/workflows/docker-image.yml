@@ -26,9 +26,6 @@ jobs:
 
     - name: Configure Docker for GCP
       run: gcloud auth configure-docker
-      
-    - name: Download auth plugin
-      run: sudo apt install gke-gcloud-auth-plugin
 
     - name: Build Docker image
       run: docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/iris-api:${{ github.sha }} .
