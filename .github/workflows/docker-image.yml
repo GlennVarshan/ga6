@@ -26,6 +26,9 @@ jobs:
 
     - name: Download kubectl
       uses: google-github-actions/get-gke-credentials@v2
+      with:
+        cluster_name: 'ga6-cluster-1'
+        location: 'us-central1'
     
     - name: Configure Docker for GCP
       run: gcloud auth configure-docker
