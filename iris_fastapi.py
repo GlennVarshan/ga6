@@ -28,3 +28,4 @@ def predict_species(data: IrisInput):
     return {
         "predicted_class": prediction
     }
+#check
