@@ -18,7 +18,18 @@ jobs:
 
     - name: Install dependencies
       run: pip install -r requirements.txt
+    
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v2'
+      with:
+        credentials_json: '${{ secrets.GCP_SA_KEY }}'
 
+    - id: 'get-credentials'
+      uses: 'google-github-actions/get-gke-credentials@v2'
+      with:
+        cluster_name: 'ga6-cluster-1'
+        location: 'us-central1'
+        
     - name: Authenticate to GCP
       uses: google-github-actions/auth@v2 # <--- Use the dedicated action
       with:
